@@ -19,4 +19,16 @@
 11.	Right click the Arch Linux in the Library section and click “Open VM Directory”
 12.	After doing that right click the Arch Linux.vmx and edit it by using notepad. Under “encoding = “windows-1252”, add firmware=“efi” and save it.
 ## Installing the ArchLinx Modifications 
-1.	Type 
+1.	Click Enter on "Arch Linux install medium (x86_64, UEFI) 
+### 1.1 Connect to the Internet
+1.	To make sure you have internet connection, type "ip link" 
+### 1.2 Update Clock 
+1. type "timedatectl status" to update the clock for the Arch Linux
+### 1.3 Partition the disks 
+1. Manually partition the virtual hard drives by first modifying the partition tables by typing "fdisk /dev/sda"
+2. Once doing that, type "n". We do this to add a new partition. Type "p" for primary. For partition  number, leave it to default. For First Sector, set it to 2048. Finally, for the Last Sector, put +500M. You completed adding the first partition
+3. For the second partition, leave everything to default value 
+### Format The Partition 
+1. For the first sda1, we are formatting this as a FAT32 file since the size is at least 300 MiB and under 512 MiB. Type "mkfs.fat -F 32 /dev/sda1" 
+  Note: I accidentally set this a a Ext4 file and was able to fix it by overriding it to the Ext4 file by calling the command 
+3. For the second sda2, we are formatting this to
