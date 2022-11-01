@@ -1,12 +1,11 @@
 # Arch Linux Installation Documentation 
 
-Arch Linux Walkthrough
-Downloading Arch Linux File from ArchLinux Wiki 
+## Downloading Arch Linux File from ArchLinux Wiki 
 1.	Go to the ArchLinux Wiki that is provided in the assignment and click the Download button. 
 2.	Scroll all the way down till you see the United States section and download any of the one (Downloaded mit.edu since that was what Professor West used) 
 3.	Click archlinux-2022.10.01-x86 64.iso and wait till it finish downloading
 4.	Make sure the checksums are correct just to make sure no one is installing a virus. 
-Creating the ArchLinux Virtual Machine
+## Creating the ArchLinux Virtual Machine
 1.	Since we are installing it into a virtual machine, download VMWare Workstation 
 2.	In the VMWare Workstation, Create a New Virtual Machine 
 3.	Click advanced button
@@ -19,5 +18,5 @@ Creating the ArchLinux Virtual Machine
 10.	For the last few sections, leave everything to default.  
 11.	Right click the Arch Linux in the Library section and click “Open VM Directory”
 12.	After doing that right click the Arch Linux.vmx and edit it by using notepad. Under “encoding = “windows-1252”, add firmware=“efi” and save it.
-Installing the ArchLinx Modifications 
+## Installing the ArchLinx Modifications 
 1.	Type 
