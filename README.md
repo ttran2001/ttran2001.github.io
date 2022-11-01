@@ -50,13 +50,27 @@ For this section, this was difficult when using the basic installation and that 
 2. Generate the locales by typing "locale-gen" 
 3. After that, type "nano /etc/locale.conf" and type "LANG=en_US.UTF-8". ctrl+x and save by clicking the ENTER key twice 
 ### 3.3 Network Configuration 
-1. For this section, we need to create the hostname file, start by typing "nano /etc/hostname". In there, type the hostname of your choice. An example would be "tylertran". Save it by ctrl+x and ENTER key twice 
+1. For this section, we need to create the hostname file, start by creating the hostname by typing "touch /etc/hostname". After that we need to edit the host name. Type "nano /etc/hostname". In there, type the hostname of your choice. An example would be "tylertran". Save it by ctrl+x, y, and ENTER key. Next we need to edit the host files in NANO editor. Type "nano /etc/hosts". Type the following 127.0.0.1 localhost ::1 localhost 127.0.1.1 tylertran". 
 ### 3.4 Initramfs 
 1. While this section is not required, its better to have this just in case, given that mkinitcpio was run on installation of the kernel package with pacstrap. For this section, we need to recreate the initramfs image by typing "mkinitcpio -P" 
 ### 3.5 Password
-1. We need to set a password for the root. We can do this by typing "passwd". This allows us to create a password for our root.  
+1. We need to set a password for the root. We can do this by typing "passwd". This allows us to create a password for our root.
 ### 3.6 Bootloader 
 1. For this section, we need to download some packages to download the bootloader. Type "pacman -S man-pages texinfo sudo man-db sof-firmware dosfstools amd-ucode"
 Problem: For some reason when I tried installing the packages, it kept saying that the packages were corrupted. If you run into this problem do these steps 
 1. pacman-key --init 
 2. pacman-key --populate archlinux 
+### Updating the Packages 
+1. After finish downloading the packages, we need to update the packages before installing the NetworkManager. Do these following step-by-step
+sudo pacman -Syu 
+sudo pacman -S wpa_supplicant wireless_tools networkmanager 
+sudo pacman -S nm-connection-editor network-manager-applet 
+sudo systemctl enable NetworkManager.service 
+sudo systemctl  enable wpa_supplicant.service 
+### 3.7 Changing the password 
+1. The second to last step, we need to change the password of the root so we can login into ArchLinux. Type "passwd" and enter the password you want it. Retype it to verify that is the password that you wanted. 
+### 3.8 Downloading the bootloader 
+1. For the final step into installing the ArchLinux, we need to install the bootloader.  First do this by typing "grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB"
+2. Next, type "-grub-mkconfig -o /boot/grub/grub.cfg" to update the processor microcodes 
+3.  Second to last, type "mount /dev/sda1 /mnt" to mount the boot disk as the mounted partition 
+4. Lastly, type "grub-install --efi-directory=/dev/sda1" to install the EFI directory to the boot disk via GRUB. 
