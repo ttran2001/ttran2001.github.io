@@ -35,7 +35,7 @@
 (Note: I accidentally set this a a Ext4 file and was able to fix it by overriding it to the Ext4 file by calling the command)
 ### 1.5 Mount the file systems
 1.  For sda1, given that the file is a FAT32, mount the file by typing "mount --mkdir /dev/sda1 /mnt/boot"
-2.  For sda2, type "mount /dev/sda2", given that it is a Ext4 file. 
+2.  For sda2, type "mount /dev/sda2 /mnt", given that it is a Ext4 file. 
 ### 2.1 Installation Packages
 1. To install the packages that we would need for the last steps, type "pacstrap -K /mnt base linux linux-firmware nano grub dhcpcd efibootmgr. This would install the nano commmand,  grub command, dhcpcd command, and the efibootmgr command. 
 (Note: I did had trouble when I installed the package that the Arch Linux Installation guide provided but it only installed the basic packages and made it difficult when trying to edit the Localization) 
