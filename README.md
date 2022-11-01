@@ -29,21 +29,31 @@
 2. Once doing that, type "n". We do this to add a new partition. Type "p" for primary. For partition  number, leave it to default. For First Sector, set it to 2048. Finally, for the Last Sector, put +500M. You completed adding the first partition
 3. For the second partition, leave everything to default value 
 (Note: We are ignoring the swap)
-### Format The Partition 
+### 1.4 Format The Partition 
 1. For the first sda1, we are formatting this as a FAT32 file since the size is at least 300 MiB and under 512 MiB. Type "mkfs.fat -F 32 /dev/sda1"
 2. For the second sda2, we are formatting this to Ext4 file since the file is over 500 MiB. Type "mkfs.ext4 /dev/sda2
 (Note: I accidentally set this a a Ext4 file and was able to fix it by overriding it to the Ext4 file by calling the command)
-### Mount the file systems
+### 1.5 Mount the file systems
 1.  For sda1, given that the file is a FAT32, mount the file by typing "mount --mkdir /dev/sda1 /mnt/boot"
 2.  For sda2, type "mount /dev/sda2", given that it is a Ext4 file. 
-### Installation Packages
+### 2.1 Installation Packages
 1. To install the packages that we would need for the last steps, type "pacstrap -K /mnt base linux linux-firmware nano grub dhcpcd efibootmgr. This would install the nano commmand,  grub command, dhcpcd command, and the efibootmgr command. 
 (Note: I did had trouble when I installed the package that the Arch Linux Installation guide provided but it only installed the basic packages and made it difficult when trying to edit the Localization) 
-### Configuring The System 
+### 3.1 Configuring The System 
 1. For this section we must first generate an fstab file, do this by typing "genfstab -U /mnt >> /mnt/etc/fstab" 
 2. After that, we need to change root into a new system. We can do this by typing "arch-chroot /mnt" 
 3. Next, we need to set the timezone. We first type ln -sf /usr/share/zoneinfo/America/Chicago /etc/localtime 
 4. For the last step for this section, we would type "hwclock --systohc". This would make the command assume that the hardware clock is set to UTC
-### Localization 
+### 3.2 Localization 
 For this section, this was difficult when using the basic installation and that it didn't describe that we needed to use nano, making it difficult for people new to Linux. 
-1. 
+1. To start, type nano /etc/locale.gen and uncomment en_US.UTF-8 UTF-8 by erasing the #. ctrl+x and save it by clicking the ENTER key twice
+2. Generate the locales by typing "locale-gen" 
+3. After that, type "nano /etc/locale.conf" and type "LANG=en_US.UTF-8". ctrl+x and save by clicking the ENTER key twice 
+### 3.3 Network Configuration 
+1. For this section, we need to create the hostname file, start by typing "nano /etc/hostname". In there, type the hostname of your choice. An example would be "tylertran". Save it by ctrl+x and ENTER key twice 
+### 3.4 Initramfs 
+1. While this section is not required, its better to have this just in case, given that mkinitcpio was run on installation of the kernel package with pacstrap. For this section, we need to recreate the initramfs image by typing "mkinitcpio -P" 
+### 3.5 Password
+1. We need to set a password for the root. We can do this by typing "passwd". This allows us to create a password for our root.  
+### 3.6 Bootloader 
+
