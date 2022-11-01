@@ -56,4 +56,7 @@ For this section, this was difficult when using the basic installation and that 
 ### 3.5 Password
 1. We need to set a password for the root. We can do this by typing "passwd". This allows us to create a password for our root.  
 ### 3.6 Bootloader 
-
+1. For this section, we need to download some packages to download the bootloader. Type "pacman -S man-pages texinfo sudo man-db sof-firmware dosfstools amd-ucode"
+Problem: For some reason when I tried installing the packages, it kept saying that the packages were corrupted. If you run into this problem do these steps 
+1. pacman-key --init 
+2. pacman-key --populate archlinux 
