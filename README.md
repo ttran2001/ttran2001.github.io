@@ -1,4 +1,4 @@
-# ttran2001.github.io
+# Arch Linux Installation Documentation 
 
 Arch Linux Walkthrough
 Downloading Arch Linux File from ArchLinux Wiki 
