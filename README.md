@@ -40,9 +40,10 @@ Now you have Arch Linux up and running, its time to install the modifications to
 
 1. To make sure you have internet connection, type `ip link`
 
-### 1.2 Update Clock
+### 1.2 Update Clock and the Language
 
 1. type `timedatectl status` to update the clock for the Arch Linux
+2. type `loadkeys us` to set the keyboard to US keyboard. 
 
 ### 1.3 Partition the disks
 
@@ -63,6 +64,7 @@ Now you have Arch Linux up and running, its time to install the modifications to
 
 1.  For sda1, given that the file is a FAT32, mount the file by typing `mount --mkdir /dev/sda1 /mnt/boot`
 2.  For sda2, type `mount /dev/sda2 /mnt`, given that it is a Ext4 file.
+3.  Just like the last section, type `lsblk -f` to make sure both sda1 and sda2 are mounted correctly
 
 (Note: One problem that I occured was accidentally mounting the wrong sda file. One solution that I did to fix it by correcting the mount and overriding the original mount that I accidentally commit it to)
 
@@ -76,7 +78,9 @@ Now you have Arch Linux up and running, its time to install the modifications to
 
 ### 3.1 Configuring The System
 
-1. For this section we must first generate an fstab file, do this by typing `genfstab -U /mnt >> /mnt/etc/fstab` 
+For this next step, we need to configure the system so we can install our bootloader and set the root password. 
+
+1. First generate an fstab file, do this by typing `genfstab -U /mnt >> /mnt/etc/fstab` 
 2. After that, we need to change root into a new system. We can do this by typing `arch-chroot /mnt`
 3. Next, we need to set the timezone. We first type `ln -sf /usr/share/zoneinfo/America/Chicago /etc/localtime` (that the case if you are attending University of Tulsa)
 4. For the last step for this section, we would type `hwclock --systohc`. This would make the command assume that the hardware clock is set to UTC
@@ -97,7 +101,7 @@ For this section, this was difficult when using the basic installation and that 
 2. After that we need to edit the host name. Type `nano /etc/hostname`. In there, type the hostname of your choice. An example would be `tylertran`
 3. Save it by ctrl+x, y, and ENTER key.
 4. Next we need to edit the host files in NANO editor. Type `nano /etc/hosts`.
-5. Type the following 127.0.0.1 localhost ::1 localhost 127.0.1.1 tylertran`.
+5. Type the following `127.0.0.1 localhost ::1 localhost 127.0.1.1 username`. (ex: username = tylertran) 
 
 (Note: Out of all the steps, the steps since it did not give the specific step on what we needed to type.)
 
@@ -107,18 +111,14 @@ For this section, this was difficult when using the basic installation and that 
 
 (Note: Was not difficult since it exactly what was said on the Arch Linux Wiki)
 
-### 3.5 Password
-
-1. We need to set a password for the root. We can do this by typing `passwd`. This allows us to create a password for our root. Enter a password that you will remember
-
-### 3.6 Bootloader
+### 3.5 Bootloader
 
 1. For this section, we need to download some packages to download the bootloader. Type `pacman -S man-pages texinfo sudo man-db sof-firmware dosfstools amd-ucode`
 
-Problem: For some reason when I tried installing the packages, it kept saying that the packages were corrupted. If you run into this problem do these steps
+Problem: For some reason when I tried installing the packages, it kept saying that the packages were corrupted. If you run into this problem do these steps because it could be a arch linux key problem. 
 
-- pacman-key --init
-- pacman-key --populate archlinux
+- `pacman-key --init`
+- `pacman-key --populate archlinux`
 
 Source: https://www.reddit.com/r/archlinux/comments/7wrwns/pacman_always_return_package_is_corrupted/
 
@@ -133,21 +133,21 @@ Source: https://www.reddit.com/r/archlinux/comments/7wrwns/pacman_always_return_
    - `sudo systemctl enable NetworkManager.service`
    - `sudo systemctl enable wpa_supplicant.service`
 
-### 3.7 Changing the password
+### 3.6 Changing the password
 
 1. The second to last step, we need to change the password of the root so we can login into ArchLinux. Type `passwd` and enter the password you want it. Retype it to verify that is the password that you wanted.
 
-### 3.8 Downloading the bootloader
+### 3.7 Downloading the bootloader
 
 1. For the final step into installing the ArchLinux, we need to install the bootloader. First do this by typing `grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB`
-2. Next, type `-grub-mkconfig -o /boot/grub/grub.cfg` to update the processor microcodes
+2. Next, type `grub-mkconfig -o /boot/grub/grub.cfg` to update the processor microcodes
 3. Second to last, type `mount /dev/sda1 /mnt` to mount the boot disk as the mounted partition
 4. Lastly, type `grub-install --efi-directory=/dev/sda1` to install the EFI directory to the boot disk via GRUB.
-5. Restart your Virtual Machine my restarting the guest. Once doing that, you should be having a new screen that displays GUB on the top. This means that you installed your Arch Linux correctly.
+5. Restart your Virtual Machine my typing `reboot`. Once doing that, you should be having a new screen that displays GUB on the top. This means that you installed your Arch Linux correctly.
 
-   (Note: I never noticed that I accidentally installed de-latin1 keyboard until entering my login on the Arch Linux. A solution that I did was after signing into the Arch Linux. I typed `loadkeys us`. This enable me to use the US keyboard.)
+   (Note: One of the Virutual Machine, I never noticed that I accidentally installed de-latin1 keyboard until entering my login on the Arch Linux. A solution that I did was after signing into the Arch Linux. I typed `loadkeys us`. This enable me to use the US keyboard.)
 
-   (Problem: The only problme I had was that I did not was able to know how to install the grub until looking into Arch Linux Wiki)
+   (Problem: The only problmem I had was that I did not was able to know how to install the grub until looking into Arch Linux Wiki)
 
 ## **Arch Linux VM Modifications**
 
@@ -178,6 +178,8 @@ While this is not necessary when booting up everytime, it is highly recommended 
 1. For this step, we need to install a Desktop Enviroment to the function. To start, type `pacman -S xorg`. Click ENTER key to install all the packages
 2. After waiting and finish downloading, type `pacman -S xorg-server`. This will install the display server package.
 
+(Note: If installation was not active, type `ping google.com` to see if it works. If not type `sudo systemctl disable dhcpcd.service` and `sudo systemctl start NetworkManager.service`
+
 ### Installing KDE
 
 For this step, you will need to download a compatible DE of your choice. Given from Codi that KDE was the best, we will use this. You will need to download the KDE Plasma Desktop Enviroment from a website.
@@ -190,6 +192,7 @@ Source: https://kubuntu.org/
 4. Finally, type `systemctl enable sddm.service` to enable the simple desktop display for our KDE Plasma DE
 5. Reboot your system by typing `reboot` 
 
+(Problem: I ran into a problem where it did not boot the screen when I reboot it. It was stuck in the start screen and never boot. Had reinstall a new virtual machine) 
 
 ![Screenshot 2022-11-05 024458](https://user-images.githubusercontent.com/87620828/200138323-220932ca-c2d1-4780-85df-20bc4a7b6a6c.jpg)
 
@@ -197,7 +200,13 @@ Source: https://kubuntu.org/
 
 ![Screenshot 2022-11-05 025714](https://user-images.githubusercontent.com/87620828/200138723-61f1f962-37bc-494c-8c5f-6146b02bc4aa.jpg)
 
-1. Type `sudo pacman -S zsh`. This would install the zsh shell package given that we wanted to install a different shell not was not bash. 
+1. Type `sudo pacman -S zsh`. This would install the zsh shell package given that we wanted to install a different shell not was not bash. Since we do not have root access, type `su root` and type the password you set for root access.
+2. Type `zsh` and foolow the following step to make it correct
+   - Type `1`: Continue to the the main menu
+   - Type `2`: Configure the auto-complete system
+   - Type `1`: Set to the default option
+   - Type `0`: to exit and save the configuration 
+   - Type `exit`
 
 ### Customizing zsh
 
@@ -211,9 +220,21 @@ Source: https://kubuntu.org/
 
 ### Installing the SSH
 
-1. Type `sudo pacman -S putty`
-2. After installing the putty, type `ssh -p53997 sysadmin@129.244.245.111`
+1. Type `pacman -S openssh` to install openssh 
+2. Check the status by typing `systemctl status sshd`. If it is not active, type `systemctl start sshd`
+3. After installing the putty, type `ssh -p53997 sysadmin@129.244.245.111`
 
-### Creating the aliases
+### :Color coding and Creating the aliases
 
 ![Screenshot 2022-11-05 031954](https://user-images.githubusercontent.com/87620828/200138744-bb7baf2d-f66f-454c-a038-03317aa1b5fe.jpg)
+
+For the final step, we need to add some color to our konsole. To start, let first add some color to our code. 
+
+1. Call the coomand `nano ~/.zshrc` to edit the zshrc file since we are running zsh 
+2. Type `PS1="%{$fg[blue]%}%n%{$reset_color%}@%{$fg[green]%}%m %{$fg[yellow]%}%~ %{$reset_color%}%% "`
+3. Next, we want to add some alias to our code to make it faster to code in linux. Below the code that we typed in the last step, add these steps (or anything else of your choice)
+   - `alias clr='clear'`: a quicker way to call clear 
+   - `alias rb='sudo reboot'`: a quicker way to call reboot 
+   - `alias gh='history | grep'`: a way to check the history of grep being used
+   - `alias c='clear'`: another quick way to call clear.
+5. TCTRL+X, Y, and ENTER to save your changes 
