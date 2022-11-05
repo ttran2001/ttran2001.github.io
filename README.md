@@ -181,8 +181,10 @@ For this step, you will need to download a compatible DE of your choice. Given f
 Source: https://kubuntu.org/
 
 1. After downloading it, type "pacman-S plasma plasma-meta" to install the KDE Plasma package (For everything they ask, click ENTER to install everything)
-2. Once doing that, type "pacman -S plasma-wayland-session kde-applications" to isntall the Wayland small display server protocol for our KDE Plasma that we installed in the last step.
-3. Finally, type "systemctl enable sddm.service" to enable the simple desktop display for our KDE Plasma DE
+2. Type "pacman -S xf86-video-intel" afterward. Only for Intel. 
+3. Once doing that, type "pacman -S plasma-wayland-session kde-applications" to isntall the Wayland small display server protocol for our KDE Plasma that we installed in the last step.
+4. Finally, type "systemctl enable sddm.service" to enable the simple desktop display for our KDE Plasma DE
+5. Reboot your system by typing "reboot" 
 
 ### Changing the Shell
 
