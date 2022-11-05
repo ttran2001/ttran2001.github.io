@@ -180,11 +180,13 @@ For this step, you will need to download a compatible DE of your choice. Given f
 
 Source: https://kubuntu.org/
 
-1. After downloading it, type "pacman-S plasma-wayland-session kde-application" to install the Wayland small display server protocol for our KDE plasma
+1. After downloading it, type "pacman-S plasma plasma-meta" to install the KDE Plasma package (For everything they ask, click ENTER to install everything)
+2. Once doing that, type "pacman -S plasma-wayland-session kde-applications" to isntall the Wayland small display server protocol for our KDE Plasma that we installed in the last step.
+3. Finally, type "systemctl enable sddm.service" to enable the simple desktop display for our KDE Plasma DE
 
 ### Changing the Shell
 
-1. Type "sudo pacman -S zsh". This would install the Zsh shell package
+1. Type "sudo pacman -S zsh". This would install the zsh shell package given that we wanted to install a different shell not was not bash. 
 
 ### Customizing zsh
 
@@ -194,13 +196,9 @@ Source: https://kubuntu.org/
 4. Once creating that, edit it by typing "nano ~/.zshrc" and change the theme where it says "ZSH_THEME=robbyrussell" to "ZSH_THEME=eastwood".
 5. Finally, to change the color of certain characters, type "source ~/.zshrc to apply the changes.
 
-### Installing the browser
-
-1. For the browser, I downloaded Firefox.
-
 ### Installing the SSH
 
 1. Type "sudo pacman -S putty
-2. After installing the putty, type "ssh -p53997 sar9727@129.244.245.21"
+2. After installing the putty, type "ssh -p53997 ttt7858@129.244.245.111"
 
 ### Creating the aliases
