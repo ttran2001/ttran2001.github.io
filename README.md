@@ -185,6 +185,8 @@ While this is not necessary when booting up everytime, it is highly recommended 
 
 ### Installing KDE
 
+![Screenshot 2022-11-05 024458](https://user-images.githubusercontent.com/87620828/200138323-220932ca-c2d1-4780-85df-20bc4a7b6a6c.jpg)
+
 For this step, you will need to download a compatible DE of your choice. Given from Codi that KDE was the best, we will use this. You will need to download the KDE Plasma Desktop Enviroment from a website.
 
 Source: https://kubuntu.org/
@@ -195,9 +197,13 @@ Source: https://kubuntu.org/
 4. Finally, type `systemctl enable sddm.service` to enable the simple desktop display for our KDE Plasma DE
 5. Reboot your system by typing `reboot` 
 
+![Screenshot 2022-11-05 153847](https://user-images.githubusercontent.com/87620828/200140646-b5ce4478-d441-48cd-8776-9c6ebdab9c56.jpg)
+
+6. Once the KDE boots, click your user and type the password you set for the user. 
+
 (Problem: I ran into a problem where it did not boot the screen when I reboot it. It was stuck in the start screen and never boot. Had reinstall a new virtual machine) 
 
-![Screenshot 2022-11-05 024458](https://user-images.githubusercontent.com/87620828/200138323-220932ca-c2d1-4780-85df-20bc4a7b6a6c.jpg)
+
 
 ### Changing the Shell
 
