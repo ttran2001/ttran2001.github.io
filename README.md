@@ -55,6 +55,7 @@ Now you have Arch Linux up and running, its time to install the modifications to
 
 1. For the first sda1, we are formatting this as a FAT32 file since the size is at least 300 MiB and under 512 MiB. Type "mkfs.fat -F 32 /dev/sda1"
 2. For the second sda2, we are formatting this to Ext4 file since the file is over 500 MiB. Type "mkfs.ext4 /dev/sda2
+3. Type "lsblk -f" to check if it is formatted correctly. 
 
    (Note: I accidentally set this a a Ext4 file and was able to fix it by overriding it to the Ext4 file by calling the command)
 
