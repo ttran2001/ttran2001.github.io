@@ -66,6 +66,8 @@ Now you have Arch Linux up and running, its time to install the modifications to
 
 (Note: One problem that I occured was accidentally mounting the wrong sda file. One solution that I did to fix it by correcting the mount and overriding the original mount that I accidentally commit it to)
 
+![Screenshot 2022-11-05 020242](https://user-images.githubusercontent.com/87620828/200138345-11954fee-17dc-4d68-bff3-40c294328d7e.jpg)
+
 ### 2.1 Installation Packages
 
 1. To install the packages that we would need for the last steps, type "pacstrap -K /mnt base linux linux-firmware nano grub dhcpcd efibootmgr. This would install the nano commmand, grub command, dhcpcd command, and the efibootmgr command.
@@ -186,6 +188,9 @@ Source: https://kubuntu.org/
 3. Once doing that, type "pacman -S plasma-wayland-session kde-applications" to isntall the Wayland small display server protocol for our KDE Plasma that we installed in the last step.
 4. Finally, type "systemctl enable sddm.service" to enable the simple desktop display for our KDE Plasma DE
 5. Reboot your system by typing "reboot" 
+
+
+![Screenshot 2022-11-05 024458](https://user-images.githubusercontent.com/87620828/200138323-220932ca-c2d1-4780-85df-20bc4a7b6a6c.jpg)
 
 ### Changing the Shell
 
