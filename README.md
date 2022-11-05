@@ -102,6 +102,9 @@ For this section, this was difficult when using the basic installation and that 
 3. Save it by ctrl+x, y, and ENTER key.
 4. Next we need to edit the host files in NANO editor. Type `nano /etc/hosts`.
 5. Type the following `127.0.0.1 localhost ::1 localhost 127.0.1.1 username`. (ex: username = tylertran) 
+6. Type `EDITOR=/usr/bin/nano visudo`
+7. Scroll till you see `root ALL=(ALL:ALL) ALL`
+8. Below that type `tyler ALL=(ALL:ALL) ALL` and `codi ALL=(ALL:ALL) ALL` to give both users to be able to use all commands, including sudo. 
 
 (Note: Out of all the steps, the steps since it did not give the specific step on what we needed to type.)
 
@@ -237,4 +240,4 @@ For the final step, we need to add some color to our konsole. To start, let firs
    - `alias rb='sudo reboot'`: a quicker way to call reboot 
    - `alias gh='history | grep'`: a way to check the history of grep being used
    - `alias c='clear'`: another quick way to call clear.
-5. TCTRL+X, Y, and ENTER to save your changes 
+5. Type CTRL+X, Y, and ENTER to save your changes 
