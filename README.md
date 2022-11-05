@@ -227,7 +227,14 @@ Source: https://kubuntu.org/
 2. Check the status by typing `systemctl status sshd`. If it is not active, type `systemctl start sshd`
 3. After installing the putty, type `ssh -p53997 sysadmin@129.244.245.111`
 
-### :Color coding and Creating the aliases
+
+### Installing a browser
+
+This is not a required step but since this is one of the assignment for Arch Linux Project, we need to install a browser to our system rather than using the default that is provided.
+1. Type `pacman -S firefox` to install the browser firefox
+2. After it is done, search firefox, right click it, and have it set to desktop. 
+
+### Color coding and Creating the aliases
 
 ![Screenshot 2022-11-05 031954](https://user-images.githubusercontent.com/87620828/200138744-bb7baf2d-f66f-454c-a038-03317aa1b5fe.jpg)
 
@@ -241,3 +248,7 @@ For the final step, we need to add some color to our konsole. To start, let firs
    - `alias gh='history | grep'`: a way to check the history of grep being used
    - `alias c='clear'`: another quick way to call clear.
 5. Type CTRL+X, Y, and ENTER to save your changes 
+
+### Conclusion 
+
+If you made it this far this mean that you successfully installed Arch Linux. Good Job! In my opinion this was a fun experience to do even though I had to reinstall it so many times because of boot installation error. Have fun with your new Arch Linux Virtual Machine :) 
