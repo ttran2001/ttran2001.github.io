@@ -172,8 +172,6 @@ For this requirements, we need to makes some modifications to our Arch Linux. To
 While this is not necessary when booting up everytime, it is highly recommended to do so if you are logging in for the first type.
 
 1. Type `pacman -Syu`
-2. 
-![Screenshot 2022-11-05 025714](https://user-images.githubusercontent.com/87620828/200138723-61f1f962-37bc-494c-8c5f-6146b02bc4aa.jpg)
 
 ### Installing The Boot Enviroment
 
@@ -196,6 +194,8 @@ Source: https://kubuntu.org/
 ![Screenshot 2022-11-05 024458](https://user-images.githubusercontent.com/87620828/200138323-220932ca-c2d1-4780-85df-20bc4a7b6a6c.jpg)
 
 ### Changing the Shell
+
+![Screenshot 2022-11-05 025714](https://user-images.githubusercontent.com/87620828/200138723-61f1f962-37bc-494c-8c5f-6146b02bc4aa.jpg)
 
 1. Type `sudo pacman -S zsh`. This would install the zsh shell package given that we wanted to install a different shell not was not bash. 
 
