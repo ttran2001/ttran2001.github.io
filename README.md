@@ -34,7 +34,7 @@ For this section, we need to create the Virtual Machine so we can do Arch Linux 
 
 Now you have Arch Linux up and running, its time to install the modifications to start, we need to enter into Arch Linux.
 
-1. Click Enter on `Arch Linux install medium (x86_64, UEFI)
+1. Click Enter on `Arch Linux install medium (x86_64, UEFI)`
 
 ### 1.1 Connect to the Internet
 
