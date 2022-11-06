@@ -225,7 +225,7 @@ Source: https://kubuntu.org/
 ![Screenshot 2022-11-05 031003](https://user-images.githubusercontent.com/87620828/200138738-34608db8-2685-4638-b9dc-5f13b5ffb8c1.jpg)
 
 1. Type `sudo pacman -S git` to install the Git
-2. After the installation of the Git, type `sh -c `$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)` to install the zsh
+2. After the installation of the Git, type `sh -c $(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)` to install the zsh
 3. After that, type `touch ~/.zshrc` to create the zsh config file
 4. Once creating that, edit it by typing `nano ~/.zshrc` and change the theme where it says `ZSH_THEME=robbyrussell` to `ZSH_THEME=awesomepanda`.
 5. Finally, to change the color of certain characters, type `source ~/.zshrc to apply the changes.`
