@@ -1,6 +1,6 @@
 # **Arch Linux Installation Documentation**
 
-In this tutorial, I will walkthrough on the steps that I did on installing Arch Linux including problems that I went through with the solutions that I was able to solve in proceeding. The document is composed of five sections into installing Arch Linux while also adding modifications after installing Arch Linux.
+In this tutorial, I will walkthrough on the steps that I did on installing Arch Linux including problems that I went through with the solutions that I was able to solve in proceeding. The document is composed of five sections into installing Arch Linux while also adding modifications after installing Arch Linux. This tutorial is made for University of Tulsa students but could be modified by anyone by using the examples in the step. 
 
 ## **Downloading Arch Linux File from ArchLinux Wiki**
 
@@ -10,7 +10,7 @@ Source: https://archlinux.org/download/
 
 1. Go to the ArchLinux Wiki that is provided in the assignment and click the Download button.
 2. Scroll all the way down till you see the United States section and download any of the one (Downloaded mit.edu since that was what Professor West used)
-3. Click archlinux-2022.10.01-x86 64.iso and wait till it finish downloading
+3. Click `archlinux-2022.10.01-x86 64.iso` and wait till it finish downloading
 4. Make sure the checksums are correct just to make sure no one is installing a virus.
 
 ## **Creating the ArchLinux Virtual Machine**
@@ -20,15 +20,15 @@ For this section, we need to create the Virtual Machine so we can do Arch Linux 
 1. Since we are installing it into a virtual machine, download VMWare Workstation
 2. In the VMWare Workstation, Create a New Virtual Machine
 3. Click advanced button
-4. For the “Choose the Virtual Machine Hardware Compatibility”, make sure the Hardware compatibility is up to date
-5. For “Installer disc image file”, put the Arch Linux file that you downloaded.
-6. In “Select a Guest Operating System”, select “Other Linux 5.x kernel 64-bit” in the Version section
+4. For the `Choose the Virtual Machine Hardware Compatibility`, make sure the Hardware compatibility is up to date
+5. For `Installer disc image file`, put the Arch Linux file that you downloaded.
+6. In `Select a Guest Operating System`, select `Other Linux 5.x kernel 64-bit` in the Version section
 7. Name the Virtual Machine in the next section
-8. In “Processor Configuration”, set the Number of processors to 1 and Number Of Cores Per Processor to 2.
-9. For “Memory for the Virtual Machine”, set the storage to 2 GB.
+8. In `Processor Configuration`, set the Number of processors to 1 and Number Of Cores Per Processor to 2.
+9. For `Memory for the Virtual Machine`, set the storage to 2 GB.
 10. For the last few sections, leave everything to default.
-11. Right click the Arch Linux in the Library section and click “Open VM Directory”
-12. After doing that right click the Arch Linux.vmx and edit it by using notepad. Under “encoding = “windows-1252”, add firmware=“efi” and save it.
+11. Right click the Arch Linux in the Library section and click `Open VM Directory`
+12. After doing that right click the Arch Linux.vmx and edit it by using notepad. Under `encoding = “windows-1252”`, add `firmware=“efi”` and save it.
 
 ## **Installing the ArchLinx Modifications**
 
@@ -48,7 +48,7 @@ Now you have Arch Linux up and running, its time to install the modifications to
 ### 1.3 Partition the disks
 
 1. Manually partition the virtual hard drives by first modifying the partition tables by typing `fdisk /dev/sda`
-2. Once doing that, type `n`. We do this to add a new partition. Type `p` for primary. For partition number, leave it to default. For First Sector, set it to 2048. Finally, for the Last Sector, put +500M. You completed adding the first partition
+2. Once doing that, type `n`. We do this to add a new partition. Type `p` for primary. For partition number, leave it to default. For First Sector, set it to `2048`. Finally, for the Last Sector, put `+500M`. You completed adding the first partition
 3. For the second partition, leave everything to default value
    (Note: We are ignoring the swap)
 
@@ -58,7 +58,7 @@ Now you have Arch Linux up and running, its time to install the modifications to
 2. For the second sda2, we are formatting this to Ext4 file since the file is over 500 MiB. Type `mkfs.ext4 /dev/sda2`
 3. Type `lsblk -f` to check if it is formatted correctly. 
 
-   (Note: I accidentally set this a a Ext4 file and was able to fix it by overriding it to the Ext4 file by calling the command)
+(Note: I accidentally set this a a Ext4 file and was able to fix it by overriding it to the Ext4 file by calling the command)
 
 ### 1.5 Mount the file systems
 
@@ -68,6 +68,7 @@ Now you have Arch Linux up and running, its time to install the modifications to
 
 (Note: One problem that I occured was accidentally mounting the wrong sda file. One solution that I did to fix it by correcting the mount and overriding the original mount that I accidentally commit it to)
 
+Below is what you should get: 
 ![Screenshot 2022-11-05 020242](https://user-images.githubusercontent.com/87620828/200138345-11954fee-17dc-4d68-bff3-40c294328d7e.jpg)
 
 ### 2.1 Installation Packages
@@ -102,9 +103,6 @@ For this section, this was difficult when using the basic installation and that 
 3. Save it by ctrl+x, y, and ENTER key.
 4. Next we need to edit the host files in NANO editor. Type `nano /etc/hosts`.
 5. Type the following `127.0.0.1 localhost ::1 localhost 127.0.1.1 username`. (ex: username = tylertran) 
-6. Type `EDITOR=/usr/bin/nano visudo`
-7. Scroll till you see `root ALL=(ALL:ALL) ALL`
-8. Below that type `tyler ALL=(ALL:ALL) ALL` and `codi ALL=(ALL:ALL) ALL` to give both users to be able to use all commands, including sudo. 
 
 (Note: Out of all the steps, the steps since it did not give the specific step on what we needed to type.)
 
@@ -166,7 +164,7 @@ For this requirements, we need to makes some modifications to our Arch Linux. To
 5. Type `sudo usermod -a -G sudo codi` to add the user codi to the group `sudo`. Repeat the same step for user
 6. Just in case if you wanted to make sure that all two users exist, type `less /etc/passwd` to list the passwd files of each users.
 7. After doing that, call `EDITOR=/usr/bin/nano visudo`
-8. Scroll down till you get to root ALL=(ALL:ALL) ALL and type `tyler ALL=(ALL:ALL) ALL` and 'codi ALL=(ALL:ALL) ALL`
+8. Scroll down till you get to root ALL=(ALL:ALL) ALL and type `tyler ALL=(ALL:ALL) ALL` and `codi ALL=(ALL:ALL) ALL`
 
 (Problem: Accidentally forgot to set sudo for both tyler and codi after I booted it. Call my snapshot and did step 7 and 8. Another was that I didn not know how to do step 7 until I found a resource on how to call it) 
 
@@ -185,7 +183,7 @@ While this is not necessary when booting up everytime, it is highly recommended 
 1. For this step, we need to install a Desktop Enviroment to the function. To start, type `pacman -S xorg`. Click ENTER key to install all the packages
 2. After waiting and finish downloading, type `pacman -S xorg-server`. This will install the display server package.
 
-(Note: If installation was not active, type `ping google.com` to see if it works. If not type `sudo systemctl disable dhcpcd.service` and `sudo systemctl start NetworkManager.service`
+(Note: If installation was not active, type `ping google.com` to see if it works. If not type `sudo systemctl disable dhcpcd.service` and `sudo systemctl start NetworkManager.service`)
 
 ### Installing KDE
 
@@ -207,7 +205,7 @@ Source: https://kubuntu.org/
 
 (Note: When calling pacman in the Konsole, must call `su root` because you must have root to install packages)
 
-(Problem: I ran into a problem where it did not boot the screen when I reboot it. It was stuck in the start screen and never boot. Had reinstall a new virtual machine) 
+(Problem: I ran into a problem where it did not boot the screen when I reboot it. It was stuck in the start screen and never boot. Had reinstall a new virtual machine but it might be I forgot to install intel) 
 
 ### Changing the Shell
 
@@ -230,19 +228,23 @@ Source: https://kubuntu.org/
 2. After the installation of the Git, type `sh -c `$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)` to install the zsh
 3. After that, type `touch ~/.zshrc` to create the zsh config file
 4. Once creating that, edit it by typing `nano ~/.zshrc` and change the theme where it says `ZSH_THEME=robbyrussell` to `ZSH_THEME=awesomepanda`.
-5. Finally, to change the color of certain characters, type `source ~/.zshrc to apply the changes.
+5. Finally, to change the color of certain characters, type `source ~/.zshrc to apply the changes.`
+
+(Note: Had to search up and found that oh-my-zsh was the most popular one to install. Also did not know had to install git until I saw a note on how to download the package oh-my-zsh)
 
 ### Installing the SSH
 
 1. Type `pacman -S openssh` to install openssh 
 2. Check the status by typing `systemctl status sshd`. If it is not active, type `systemctl start sshd`
 3. After installing the putty, type `ssh -p53997 sysadmin@129.244.245.111`
+4. Type the password for the ssh (If you are in Codi class, it is the same password when setting up your putty) 
 
 ### Installing a browser
 
 This is not a required step but since this is one of the assignment for Arch Linux Project, we need to install a browser to our system rather than using the default that is provided.
 1. Type `pacman -S firefox` to install the browser firefox
-2. After it is done, search firefox, right click it, and have it set to desktop. 
+2. After it is done, search firefox, right click it, and have it set to desktop.
+3. Download anything you want from your new browser.  
 
 ### Color coding and Creating the aliases
 
@@ -260,5 +262,7 @@ For the final step, we need to add some color to our konsole. To start, let firs
 5. Type CTRL+X, Y, and ENTER to save your changes 
 
 ### Conclusion 
+
+![image](https://user-images.githubusercontent.com/87620828/200149659-e494e049-f8fd-4c74-bbc7-8f549802e2c0.png)
 
 If you made it this far this mean that you successfully installed Arch Linux. Good Job! In my opinion this was a fun experience to do even though I had to reinstall it so many times because of boot installation error. Have fun with your new Arch Linux Virtual Machine :) 
