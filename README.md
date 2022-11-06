@@ -92,8 +92,8 @@ For this next step, we need to configure the system so we can install our bootlo
 
 For this section, this was difficult when using the basic installation and that it didn't describe that we needed to use nano, making it difficult for people new to Linux. I had to redownload packages given that I only downloaded the base linux packages.
 
-1. To start, type nano /etc/locale.gen and uncomment en_US.UTF-8 UTF-8 by erasing the #. ctrl+x and save it by clicking the ctrl+x, y, and then ENTER key
-2. Generate the locales by typing `locale-gen`. It should display US.UTF-8 when calling that command.
+1. To start, type `nano /etc/locale.gen` and uncomment `en_US.UTF-8 UTF-8` by erasing the #. ctrl+x and save it by clicking the ctrl+x, y, and then ENTER key
+2. Generate the locales by typing `locale-gen`. It should display `US.UTF-8` when calling that command.
 3. After that, type `nano /etc/locale.conf` and type `LANG=en_US.UTF-8`. ctrl+x and save by clicking the ENTER key twice
 
 ### 3.3 Network Configuration
@@ -158,7 +158,7 @@ For this requirements, we need to makes some modifications to our Arch Linux. To
 
 1. Type `sudo useradd -m tyler`. Repeat for codi
 2. Type `sudo passwd tyler` and enter the password to your choosing
-3. Type `sudo passwd codi` and set the password as GraceHopper1906
+3. Type `sudo passwd codi` and set the password as `GraceHopper1906` (Stranger Things Reference) 
    Once we do that, we need to add sudo permission for both the user and codi. We can do that by creating a group.
 4. Type `sudo groupadd sudo`
 5. Type `sudo usermod -a -G sudo codi` to add the user codi to the group `sudo`. Repeat the same step for user
@@ -195,15 +195,15 @@ Source: https://kubuntu.org/
 
 1. After downloading it, type `pacman-S plasma plasma-meta` to install the KDE Plasma package (For everything they ask, click ENTER to install everything)
 2. Type `pacman -S xf86-video-intel` afterward. Only for Intel. 
-3. Once doing that, type `pacman -S plasma-wayland-session kde-applications` to isntall the Wayland small display server protocol for our KDE Plasma that we installed in the last step.
+3. Once doing that, type `pacman -S plasma-wayland-session kde-applications` to isntall the Wayland small display server protocol for our KDE Plasma that we installed in the last step. This will take a long time. While make lunch while it is downloading
 4. Finally, type `systemctl enable sddm.service` to enable the simple desktop display for our KDE Plasma DE
-5. Reboot your system by typing `reboot` 
+5. Reboot your system by typing `reboot` to boot the DE 
 
 ![Screenshot 2022-11-05 153847](https://user-images.githubusercontent.com/87620828/200140646-b5ce4478-d441-48cd-8776-9c6ebdab9c56.jpg)
 
 6. Once the KDE boots, click your user and type the password you set for the user. 
 
-(Note: When calling pacman in the Konsole, must call `su root` because you must have root to install packages)
+(Note: When calling pacman in the Konsole, must call `su root` the whole time when downloading packages to the konsole because you must have root to install packages)
 
 (Problem: I ran into a problem where it did not boot the screen when I reboot it. It was stuck in the start screen and never boot. Had reinstall a new virtual machine but it might be I forgot to install intel) 
 
@@ -238,6 +238,8 @@ Source: https://kubuntu.org/
 2. Check the status by typing `systemctl status sshd`. If it is not active, type `systemctl start sshd`
 3. After installing the putty, type `ssh -p53997 sysadmin@129.244.245.111`
 4. Type the password for the ssh (If you are in Codi class, it is the same password when setting up your putty) 
+
+(Note: If you do not know your password that your professor gave you, message him. Thought I mess up and create a new Virtual Machine for fun to help me just to make sure my documentation is written correctly)
 
 ### Installing a browser
 
