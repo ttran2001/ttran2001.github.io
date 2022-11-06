@@ -165,6 +165,10 @@ For this requirements, we need to makes some modifications to our Arch Linux. To
 4. Type `sudo groupadd sudo`
 5. Type `sudo usermod -a -G sudo codi` to add the user codi to the group `sudo`. Repeat the same step for user
 6. Just in case if you wanted to make sure that all two users exist, type `less /etc/passwd` to list the passwd files of each users.
+7. After doing that, call `EDITOR=/usr/bin/nano visudo`
+8. Scroll down till you get to root ALL=(ALL:ALL) ALL and type `tyler ALL=(ALL:ALL) ALL` and 'codi ALL=(ALL:ALL) ALL`
+
+(Problem: Accidentally forgot to set sudo for both tyler and codi after I booted it. Call my snapshot and did step 7 and 8. Another was that I didn not know how to do step 7 until I found a resource on how to call it) 
 
 ![Screenshot 2022-11-05 022019](https://user-images.githubusercontent.com/87620828/200138711-91f49999-dba4-4af7-bb3e-88a6ec1a65ed.jpg)
 
@@ -201,9 +205,9 @@ Source: https://kubuntu.org/
 
 6. Once the KDE boots, click your user and type the password you set for the user. 
 
+(Note: When calling pacman in the Konsole, must call `su root` because you must have root to install packages)
+
 (Problem: I ran into a problem where it did not boot the screen when I reboot it. It was stuck in the start screen and never boot. Had reinstall a new virtual machine) 
-
-
 
 ### Changing the Shell
 
@@ -216,6 +220,7 @@ Source: https://kubuntu.org/
    - Type `1`: Set to the default option
    - Type `0`: to exit and save the configuration 
    - Type `exit`
+3. Call `chsh -s /usr/bin/zsh` to change Bash to zsh 
 
 ### Customizing zsh
 
@@ -233,7 +238,6 @@ Source: https://kubuntu.org/
 2. Check the status by typing `systemctl status sshd`. If it is not active, type `systemctl start sshd`
 3. After installing the putty, type `ssh -p53997 sysadmin@129.244.245.111`
 
-
 ### Installing a browser
 
 This is not a required step but since this is one of the assignment for Arch Linux Project, we need to install a browser to our system rather than using the default that is provided.
@@ -246,7 +250,7 @@ This is not a required step but since this is one of the assignment for Arch Lin
 
 For the final step, we need to add some color to our konsole. To start, let first add some color to our code. 
 
-1. Call the coomand `nano ~/.zshrc` to edit the zshrc file since we are running zsh 
+1. Call the comand `nano ~/.zshrc` to edit the zshrc file since we are running zsh 
 2. Type `PS1="%{$fg[blue]%}%n%{$reset_color%}@%{$fg[green]%}%m %{$fg[yellow]%}%~ %{$reset_color%}%% "`
 3. Next, we want to add some alias to our code to make it faster to code in linux. Below the code that we typed in the last step, add these steps (or anything else of your choice)
    - `alias clr='clear'`: a quicker way to call clear 
