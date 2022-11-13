@@ -16,9 +16,14 @@ For the first step, we need to install the Docker Enviroment before we can insta
 ![0](https://user-images.githubusercontent.com/87620828/201506625-0e673096-1d25-43ab-99db-a68c0be431eb.jpg)
 
 2. After the download is finish, click the accept button when te Service Agreement window pop up.
-3. Since the Docker needs privilege, we need to go into our powershell and install a file to make our Docker work. 
+3. Since the Docker needs privilege, we need to go into our powershell and install a file to make our Docker work. Type the following to your powershell and restart your laptop: 
+- `dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart`
+- `dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart`
+4. After that, download the `WSL2 Linux Kernel update package for x64 machines` from the following website: https://learn.microsoft.com/en-us/windows/wsl/install-manual#step-4---download-the-linux-kernel-update-package
+5. After it is downloaded, run it and do the following steps in the wizard. 
+6. After following the steps, if this is the screen when booting Docker, this means you have a working Docker Enviroment
 
-
+![0](https://user-images.githubusercontent.com/87620828/201507314-17078f48-82a0-49ea-9df8-daf4062db202.jpg)
 
 ## Installing WordPress via Docker 
 
@@ -31,6 +36,7 @@ Congrats, you just installed Docker! For the next step, we are going to install 
 3. Create a new .yml file of your choosing and call it `docker-compose.yml` use the following code. I used NotePad++. After that, use the following code in the bottom and save 
 
 ![0](https://user-images.githubusercontent.com/87620828/201506906-f6dc90fe-d02c-427b-bb74-e34f08da2ec9.jpg)
+
 4. Go back to your command prompt and type the following:
 - `cd WordPress`: Navigates to the `WordPress` directory
 - `docker compose up -d`: Creates the containers by running the code that you put for `docker-compose.yml` file. 
@@ -39,8 +45,13 @@ This will take a couple of minutes to install the file.
 5. After installing the file, open your browser and type http://localhost:8000/. The reason we put 8000 is because this is what we set to our port in our `docker-compose.yml` file. If this screen below pops up, this means you installed WordPress successfully 
 
 ![0](https://user-images.githubusercontent.com/87620828/201506992-2daf677e-b041-4af0-9eb0-a87518f3d235.jpg)
+
 6. Select the best language to you and click continue 
 7. Fill in the Site Title, Username, Password and Your Email. After that, click the `Install WordPress` button
+
+![0](https://user-images.githubusercontent.com/87620828/201507325-1b1d9e66-3a2d-4b68-b46e-62357505db40.jpg)
+
+This is the screen should be in the Docker if you installed your WordPress correctly. 
 
 ## Conclusion
 
