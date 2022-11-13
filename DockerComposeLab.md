@@ -1,12 +1,12 @@
 # Docker Compose Lab (Project 2) 
 
 ## Introduction 
-For this project, the objective is to install Docker Enviroment and have the choice into three main choices of either:
+For this project, the objective is to install Docker Environment and have the choice into three main choices of either:
 - Installing OpenVAS via Docker
 - Installing WordPress via Docker 
 - Installing PiHole via Docker
 
-For my choice, I decided on installing `Docker Enviroment` via Windows and went with the option of installing `WordPress via Docker`. These are the steps I took into installing both Docker and WordPress via Docker. 
+For my choice, I decided on installing `Docker Environment` via Windows and went with the option of installing `WordPress via Docker`. These are the steps I took into installing both Docker and WordPress via Docker. 
 
 ## Installing Docker Enviroment
 For the first step, we need to install the Docker Enviroment before we can install our WordPress. For this step, this step was simple and easy to install.
@@ -16,13 +16,13 @@ For the first step, we need to install the Docker Enviroment before we can insta
 ![0](https://user-images.githubusercontent.com/87620828/201506625-0e673096-1d25-43ab-99db-a68c0be431eb.jpg)
 
 2. After the download is finish, click the accept button when te Service Agreement window pop up.
-3. Since the Docker needs priv
+3. Since the Docker needs privilege, we need to go into our powershell and install a file to make our Docker work. 
 
 
 
 ## Installing WordPress via Docker 
 
-Congrats, you just installed Docker! For the next step, we are going to install `WordPress via Docker`. This process is both easy and fast. Did not had any problems doing this step. 
+Congrats, you just installed Docker! For the next step, we are going to install `WordPress via Docker`. This process is both easy and fast. Did not have any problems doing this step. 
 
 1. Open your command prompt and type the following: 
 - `docker compose --version` : Confirms that we downloaded the updated version 
@@ -42,6 +42,6 @@ This will take a couple of minutes to install the file.
 
 ## Conclusion
 
-Congrats, if you get this page below, this means that you successfully completed the Docker Compose Lab. Below is the Admin Interface and at the top right of the site is my username. Overall, this project was easy to do since I went with the WordPress route. Did not had any trouble or any problems I had in this lab. 
+Congrats, if you get this page below, this means that you completed the Docker Compose Lab. Below is the Admin Interface and at the top right of the site is my username. Overall, this project was easy to do since I went with the WordPress route. Did not have any trouble or any problems I had in this lab. 
 
 ![0](https://user-images.githubusercontent.com/87620828/201507067-29184247-dcd1-4c71-8195-597dc4210ca5.jpg)
