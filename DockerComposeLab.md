@@ -29,6 +29,7 @@ Congrats, you just installed Docker! For the next step, we are going to install 
 - `mkdir WordPress` : creates a new directory call `WordPress` 
 2. After creating your WordPress director, go to the File Explorer and to where you placed your `WordPress" Directory. For me, it was "This PC > Windows-SSD (C:) > Users > tt553 > WordPress`
 3. Create a new .yml file of your choosing and call it `docker-compose.yml` use the following code. I used NotePad++. After that, use the following code in the bottom and save 
+
 ![0](https://user-images.githubusercontent.com/87620828/201506906-f6dc90fe-d02c-427b-bb74-e34f08da2ec9.jpg)
 4. Go back to your command prompt and type the following:
 - `cd WordPress`: Navigates to the `WordPress` directory
@@ -36,6 +37,7 @@ Congrats, you just installed Docker! For the next step, we are going to install 
 
 This will take a couple of minutes to install the file. 
 5. After installing the file, open your browser and type http://localhost:8000/. The reason we put 8000 is because this is what we set to our port in our `docker-compose.yml` file. If this screen below pops up, this means you installed WordPress successfully 
+
 ![0](https://user-images.githubusercontent.com/87620828/201506992-2daf677e-b041-4af0-9eb0-a87518f3d235.jpg)
 6. Select the best language to you and click continue 
 7. Fill in the Site Title, Username, Password and Your Email. After that, click the `Install WordPress` button
