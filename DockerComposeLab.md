@@ -36,6 +36,7 @@ Congrats, you just installed Docker! For the next step, we are going to install 
 3. Create a new .yml file of your choosing and call it `docker-compose.yml` use the following code. I used NotePad++. After that, use the following code in the bottom and save 
 
 ![0](https://user-images.githubusercontent.com/87620828/201506906-f6dc90fe-d02c-427b-bb74-e34f08da2ec9.jpg)
+(Code Resource: https://www.hostinger.com/tutorials/run-docker-wordpress) 
 
 4. Go back to your command prompt and type the following:
 - `cd WordPress`: Navigates to the `WordPress` directory
