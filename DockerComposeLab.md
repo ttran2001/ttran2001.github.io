@@ -7,3 +7,12 @@ For this project, the objective is to install Docker Enviroment and have the cho
 - Installing PiHole via Docker
 
 For my choice, I decided on installing Docker Enviroment via Windows and went with the option of installing WordPress via Docker. These are the steps I took into installing both Docker and WordPress via Docker. 
+
+## Installing Docker Enviroment
+
+For this step, this was simple and easy to install. 
+
+
+## Installing WordPress via Docker 
+
+## Conclusion
