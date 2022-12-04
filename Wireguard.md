@@ -105,6 +105,8 @@ One problem I did had when trying to test the VPN was that I was unable to enter
 After you finish the steps correctly, you are doing with the Wireguard Project. Congrats!! Overall, I thought this project was overall straightfoward with the amount of instructions that was provided by Codi. One thing that made me curious was why when I tried `wp0.conf` on my Wireguard, it did not work but it worked for `peer_pc2.conf`. 
 
 # Resources I used 
+Docker Installation: https://thematrix.dev/install-docker-and-docker-compose-on-ubuntu-20-04/
+Wireguard Installation on Docker: https://thematrix.dev/setup-wireguard-vpn-server-with-docker/ 
 
 
 
