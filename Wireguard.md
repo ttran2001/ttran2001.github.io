@@ -84,11 +84,22 @@ After doing that, save it by  `CTRL` + `X`, `Y`, and click `ENTER` to both save 
 4. Lastly, start Wireguard by typing `cd ~/wireguard/`, `ENTER`, `docker-compose up -d`, and `ENTER`. This will build the server. You will know it is done once it says `Creating wireguard   ... done`
 
 # Testing the VPN on our mobile device 
-1. For this step, we need to know if our VPN is working on our mobile device. To start, first install the Wireguard application on your mobile device. Type `ipleak.net` on your mobile device browser and take a screenshot. This will show the local IP info before we turn on the VPN
+1. For this step, we need to know if our VPN is working on our mobile device. To start, first install the Wireguard application on your mobile device. Type `ipleak.net` on your mobile device browser and take a screenshot. This will show the local IP info before we turn on the VPN. This should be the result be if you are at Tulsa. 
 
-3. Once it install, go back to your console and type the following: `docker-compose logs -f wireguard`. This will generate three QR codes for `pc1`, `pc2`, and `phone1`. Scan `phone1` by opening your Wireguard VPN application, click the `+` button, and click `Create from QR code`. Scan the QR code. Follow the following steps and turn on the VPN on and repeat the second to last sentence of the last step. 
+![IMG_7618](https://user-images.githubusercontent.com/87620828/205472491-68587e3a-8d0c-451a-b549-955a55fecf6e.PNG)
 
+2. Once it install, go back to your console and type the following: `docker-compose logs -f wireguard`. This will generate three QR codes for `pc1`, `pc2`, and `phone1`. Scan `phone1` by opening your Wireguard VPN application, click the `+` button, and click `Create from QR code`. Scan the QR code. Follow the following steps and turn on the VPN on and repeat the second to last sentence of the last step. This will be the result after turning the VPN on. 
 
+![IMG_7619](https://user-images.githubusercontent.com/87620828/205472495-f8fa5f15-52ab-4824-808e-7848bd078e46.PNG)
+
+One problem I did had when trying to test the VPN was that I was unable to enter the website. Had to use LTE to test the VPN.
+
+# Testing the VPN on our laptop
+1. For the last thing we need to do, we need to test if the VPN is working on our laptop. Before doing this, install Wireguard onto your laptop. After doing that type `ipleak.net` and screenshot to show the local IP info before turning on the VPN. 
+2. After doing that, go back to your console and type `cd ~/wireguard/config/peer_pc2/ ` then `nano peer_pc2.conf` and copy the code in the .conf file. Once doing that, open Wireguard on your desktop, click `Add empty tunnel` by clicking the right side of `Add Tunnel` button and paste the content of the `peer_pc2.conf` content. Name it and click `save`. The one downside I had for this was I tried doing wg0 file but it did not work so had to resort to using peer_pc2. 
+3. Click `Activate`. Search up `ipleak.net` again and take a screenshot of the after result. This should be the result you should get below
+
+![Screenshot 2022-12-03 202058](https://user-images.githubusercontent.com/87620828/205472966-560c5930-caf0-4dfe-9595-361c1a40e73f.jpg)
 
 
 
