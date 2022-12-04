@@ -101,6 +101,12 @@ One problem I did had when trying to test the VPN was that I was unable to enter
 
 ![Screenshot 2022-12-03 202058](https://user-images.githubusercontent.com/87620828/205472966-560c5930-caf0-4dfe-9595-361c1a40e73f.jpg)
 
+# Conclusion 
+After you finish the steps correctly, you are doing with the Wireguard Project. Congrats!! Overall, I thought this project was overall straightfoward with the amount of instructions that was provided by Codi. One thing that made me curious was why when I tried `wp0.conf` on my Wireguard, it did not work but it worked for `peer_pc2.conf`. 
+
+# Resources I used 
+
+
 
 
 
